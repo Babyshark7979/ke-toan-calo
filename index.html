@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kế Toán Calo - Grow Fitness</title>
+  <meta name="description" content="AI Kế Toán Calo - Grow Fitness: Tính calo, TDEE, dinh dưỡng thông minh">
+  <meta name="theme-color" content="#e91e8c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kế Toán Calo">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon-512.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; overflow: hidden; background: #1a1a2e; }
+    body { display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    #header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #e91e8c;
+      flex-shrink: 0;
+      box-shadow: 0 2px 20px rgba(233,30,140,0.3);
+    }
+    #header img { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+    #header-text h1 { color: #fff; font-size: 16px; font-weight: 700; }
+    #header-text p { color: #e91e8c; font-size: 11px; font-weight: 500; }
+    #chat-container { flex: 1; overflow: hidden; position: relative; min-height: 0; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <img src="/icon-512.png" alt="Grow Fitness" onerror="this.style.display='none'">
+    <div id="header-text">
+      <h1>Ke Toan Calo</h1>
+      <p>Grow Fitness AI - Tinh Calo Thong Minh</p>
+    </div>
+  </div>
+  <div id="chat-container"></div>
+  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+  <script>
+    new CozeWebSDK.WebChatClient({
+      config: { bot_id: '7653139452764078133' },
+      componentProps: {
+        title: 'Ke Toan Calo',
+        targetElement: document.getElementById('chat-container'),
+        layout: 'pc'
+      },
+      auth: {
+        type: 'token',
+        token: 'pat_qUiqQhdjAqTIRUPzHoEwpOp94rXDpXJiWddU3KPHyn5WFxpBX7PI9LOmqHItZV76',
+        onRefreshToken: function() {
+          return 'pat_qUiqQhdjAqTIRUPzHoEwpOp94rXDpXJiWddU3KPHyn5WFxpBX7PI9LOmqHItZV76';
+        }
+      }
+    });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
